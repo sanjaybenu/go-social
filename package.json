@@ -1,0 +1,26 @@
+{
+  "name": "go-social",
+  "version": "1.0.0",
+  "description": "API for a social site",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanjaybenu/go-social.git"
+  },
+  "author": "Sanjay Chopra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sanjaybenu/go-social/issues"
+  },
+  "homepage": "https://github.com/sanjaybenu/go-social#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "mongoose": "^7.3.1",
+    "validator": "^13.9.0"
+  }
+}
