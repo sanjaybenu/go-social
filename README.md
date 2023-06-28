@@ -75,7 +75,7 @@ Please refer to section above for the installation.
 
 Refer to the following video for using the project.
 
-https://youtu.be/WWcFOcmeIMo
+https://youtu.be/fOf9eWRieWM
 
 ## Tests
 
