@@ -38,7 +38,7 @@ const thoughtController = {
     } catch (err) {
 
       res.status(500).json(err);
-      
+
     }
   },
 
@@ -104,8 +104,8 @@ const thoughtController = {
           .status(404)
           .json({ message: "No Thought with this id found" });
       }
-      {
-        const user = await User.find(
+      
+        {const user = await User.find(
           { thoughts: req.params.id },
           { $pull: { thoughts: req.params.id } },
           { new: true }
@@ -115,16 +115,19 @@ const thoughtController = {
             message: "Thought removed but no User with that id found",
           });
         }
+        {
         Thought.deleteMany({ _id: { $in: user.thoughts } });
 
         return res.json({ message: "Thought deleted successfully" });
+        }
       }
-    } catch (err) {
+   }
+    catch(err) {
 
-      res.status(500).deleteReactionjson(err);
+      res.status(200).json(err);
 
     }
-  },
+ },
 
   // add reaction
 
