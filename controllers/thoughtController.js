@@ -15,7 +15,9 @@ const thoughtController = {
       }
       res.json(thoughts);
     } catch (err) {
+
       res.status(500).json(err);
+
     }
   },
 
@@ -34,7 +36,9 @@ const thoughtController = {
       }
       res.json(thought);
     } catch (err) {
+
       res.status(500).json(err);
+      
     }
   },
 
@@ -57,25 +61,34 @@ const thoughtController = {
 
       res.json({ message: "Thought successfully created!" });
     } catch (err) {
-      res.json(err);
+
+      res.status(500).json(err);
     }
   },
 
   // update a thought by id
 
   async updateThought(req, res) {
-    const updatedThought = await Thought.findOneAndUpdate(
-      { _id: req.params.id },
-      req.body,
-      {
-        new: true,
-        runValidators: true,
+    try {
+      const updatedThought = await Thought.findOneAndUpdate(
+        { _id: req.params.id },
+        req.body,
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+      if (!updatedThought) {
+        return res
+          .status(404)
+          .json({ message: "No thought with this id found" });
       }
-    );
-    if (!updatedThought) {
-      return res.status(404).json({ message: "No thought with this id found" });
+      res.json(updatedThought);
+    } catch (err) {
+
+      res.status(500).json(err);
+
     }
-    res.json(updatedThought)
   },
 
   // delete a thought
@@ -107,7 +120,9 @@ const thoughtController = {
         return res.json({ message: "Thought deleted successfully" });
       }
     } catch (err) {
-      res.json(err);
+
+      res.status(500).deleteReactionjson(err);
+
     }
   },
 
@@ -126,6 +141,7 @@ const thoughtController = {
 
       res.json(newReaction);
     } catch (err) {
+
       res.status(500).json(err);
     }
   },

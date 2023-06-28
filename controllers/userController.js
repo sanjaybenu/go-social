@@ -15,7 +15,9 @@ const userController = {
       }
       res.json(users);
     } catch (err) {
+
       res.status(500).json(err);
+
     }
   },
 
@@ -40,7 +42,8 @@ const userController = {
 
       res.json(user);
     } catch (err) {
-      res.status(500).send("Something went wrong");
+
+      res.status(500).json(err);
     }
   },
 
@@ -51,7 +54,9 @@ const userController = {
       const newUser = await User.create(req.body);
       res.json(newUser);
     } catch (err) {
+
       res.status(500).json(err);
+
     }
   },
 
@@ -69,7 +74,9 @@ const userController = {
       );
       res.json(updatedUser);
     } catch (err) {
+
       res.status(500).json(err);
+
     }
   },
 
@@ -90,7 +97,9 @@ const userController = {
         return res.json({ message: "User and associated thoughts deleted!" });
       }
     } catch (err) {
-      res.json(err);
+
+      res.status(500).json(err);
+
     }
   },
 
@@ -110,7 +119,9 @@ const userController = {
 
       res.json(user);
     } catch (err) {
+
       res.status(500).json(err);
+
     }
   },
 
@@ -129,7 +140,9 @@ const userController = {
       }
       res.json(user);
     } catch (err) {
+
       res.status(500).json(err);
+
     }
   },
 };
