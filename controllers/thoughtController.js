@@ -124,7 +124,7 @@ const thoughtController = {
    }
     catch(err) {
 
-      res.status(200).json(err);
+      res.json(err);
 
     }
  },
