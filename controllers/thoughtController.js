@@ -66,7 +66,7 @@ const thoughtController = {
   async updateThought(req, res) {
     const updatedThought = await Thought.findOneAndUpdate(
       { _id: req.params.id },
-      body,
+      req.body,
       {
         new: true,
         runValidators: true,
@@ -75,6 +75,7 @@ const thoughtController = {
     if (!updatedThought) {
       return res.status(404).json({ message: "No thought with this id found" });
     }
+    res.json(updatedThought)
   },
 
   // delete a thought
